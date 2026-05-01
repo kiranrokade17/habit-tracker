@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { stats, habits, chatHistory, prompt: userMessage, apiKey } = body;
+    const { stats, chatHistory, prompt: userMessage, apiKey } = body;
 
     const finalApiKey = apiKey || process.env.GEMINI_API_KEY;
 
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
     if (chatHistory && chatHistory.length > 0) {
       fullPrompt += `\nConversation History:\n`;
-      chatHistory.forEach((msg: any) => {
+      chatHistory.forEach((msg: { role: string; content: string }) => {
         fullPrompt += `${msg.role === 'user' ? 'User' : 'Coach'}: ${msg.content}\n`;
       });
       fullPrompt += `\nUser's latest message: ${userMessage}\nCoach:`;

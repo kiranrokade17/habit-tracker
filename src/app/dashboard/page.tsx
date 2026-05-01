@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { format, startOfMonth, endOfMonth, isSameMonth } from "date-fns";
+import { format, startOfMonth, endOfMonth } from "date-fns";
 import { useRouter } from "next/navigation";
 import { HabitGrid } from "@/components/tracker/habit-grid";
 import { MonthHeader } from "@/components/tracker/month-header";
@@ -124,7 +124,7 @@ export default function DashboardPage() {
   const monthlyPercentage = totalPossible === 0 ? 0 : Math.min(Math.round((completedThisMonth / totalPossible) * 100), 100);
 
   let currentStreak = 0;
-  let checkDate = new Date();
+  const checkDate = new Date();
   while (true) {
     const dStr = format(checkDate, "yyyy-MM-dd");
     const hasCompleted = entries.some(e => e.date === dStr && e.completed);

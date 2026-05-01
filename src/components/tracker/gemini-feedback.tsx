@@ -86,7 +86,7 @@ export function GeminiFeedback({ habits, entries }: GeminiFeedbackProps) {
       });
 
       let currentStreak = 0;
-      let checkDate = new Date();
+      const checkDate = new Date();
       while (true) {
         const dStr = format(checkDate, "yyyy-MM-dd");
         const hasCompleted = entries.some(e => e.date === dStr && e.completed);
@@ -171,7 +171,7 @@ export function GeminiFeedback({ habits, entries }: GeminiFeedbackProps) {
             <div className="text-center space-y-2">
               <h4 className="font-semibold text-foreground">Bring Your Own Key</h4>
               <p className="text-sm text-muted-foreground">
-                To use the AI Coach, you need a free Google Gemini API key. We don't store your key on our servers; it stays right here in your browser.
+                To use the AI Coach, you need a free Google Gemini API key. We don&apos;t store your key on our servers; it stays right here in your browser.
               </p>
             </div>
             <a 
@@ -197,7 +197,7 @@ export function GeminiFeedback({ habits, entries }: GeminiFeedbackProps) {
             {messages.length === 0 && !loading && !error && (
               <div className="h-full flex flex-col items-center justify-center text-muted-foreground gap-2 text-center opacity-60">
                 <Sparkles className="w-10 h-10 mb-2" />
-                <p>Click "Analyze My Week" to get your personalized coaching report.</p>
+                <p>Click &quot;Analyze My Week&quot; to get your personalized coaching report.</p>
               </div>
             )}
 

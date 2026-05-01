@@ -25,7 +25,7 @@ export function UserProfile({ email, onLogout }: UserProfileProps) {
       <DropdownMenuTrigger render={<Button variant="ghost" className="relative h-10 w-10 rounded-full border border-primary/20 bg-primary/10" />}>
         <span className="text-sm font-medium text-primary">{initial}</span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuGroup>
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
